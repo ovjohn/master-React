@@ -1,6 +1,13 @@
 import React from "react";
 
 const MiComponente = () =>{
+
+    let usuario = {
+        nombre: 'Juan',
+        apellidos: 'Perez',
+        web: 'juanperez.com'
+    }
+
     return (
         <>
             <hr />
@@ -14,6 +21,18 @@ const MiComponente = () =>{
                 </li>
                 <li>
                     Vue
+                </li>
+            </ul>
+            <h3>Datos del Usuario:</h3>
+            <ul>
+                <li>
+                    El nombre es: <strong>{usuario.nombre}</strong>
+                </li>
+                <li>
+                    Apellido: <strong>{usuario.apellidos}</strong>
+                </li>
+                <li>
+                    WEB: <strong>{usuario.web}</strong>
                 </li>
             </ul>
         </>
