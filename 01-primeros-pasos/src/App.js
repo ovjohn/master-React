@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import MiComponente from './MiComponente';
+import { SegundoComponente } from './SegundoComponente';
 
 function App() {
   return (
@@ -12,6 +13,8 @@ function App() {
         </p>
       
         <MiComponente />
+        <SegundoComponente />
+        
       </header>
     </div>
   );
