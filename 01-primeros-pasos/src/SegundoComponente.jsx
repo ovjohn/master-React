@@ -12,7 +12,7 @@ export const SegundoComponente = () => {
         {libros.length >= 1 ? 
             (
                 <ul>
-                    {libros.map((libro,indice) => <li>{libro}</li>)}
+                    {libros.map((libro,indice) => <li key='indice'>{libro}</li>)}
                 </ul>
             ):
             <p>"No existen Libros"</p>
