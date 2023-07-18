@@ -19,8 +19,16 @@ export function TercerComponente({nombre, apellido, ficha}){
     )
 }
 
+
+//Definiendo las tipos de props
 TercerComponente.propTypes = {
     nombre: PropTypes.string.isRequired,
     apellido: PropTypes.string.isRequired,
     ficha: PropTypes.object
+}
+
+//Definiendo los props por defecto
+TercerComponente.defaultProps = {
+    nombre: "Default",
+    apellido: "Apellido por defaultd"
 }
