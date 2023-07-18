@@ -6,7 +6,7 @@ export const SegundoComponente = () => {
     const libros = [];
   return (
     <div className='listados-libros'>
-        <hr />
+        
         <h2>Listados de Libros</h2>
         
         {libros.length >= 1 ? 

@@ -10,7 +10,7 @@ const MiComponente = () =>{
 
     return (
         <>
-            <hr />
+            
             <h2>Hola este es: " MiComponente" </h2>
             <ul>
                 <li>

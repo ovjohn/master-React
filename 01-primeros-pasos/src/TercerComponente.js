@@ -1,11 +1,12 @@
-import React from 'react'
+import React from 'react';
+import PropTypes from 'prop-types';
 
 
 export function TercerComponente({nombre, apellido, ficha}){
     
     return(
         <div>
-            <hr />
+            
             <h1>Comunicacion entre Componentes</h1>
             <ul>
                 <li>{nombre}</li>
@@ -16,4 +17,10 @@ export function TercerComponente({nombre, apellido, ficha}){
             </ul>
         </div>
     )
+}
+
+TercerComponente.propTypes = {
+    nombre: PropTypes.string.isRequired,
+    apellido: PropTypes.string.isRequired,
+    ficha: PropTypes.object
 }
