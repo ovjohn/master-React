@@ -45,3 +45,10 @@
   color: brown;
 
 }
+
+.ejercicioUno{
+  margin-bottom: 50px;
+  padding-bottom: 200px;
+  background-color: rgb(63, 213, 240);
+  border-radius: 5px;
+}
