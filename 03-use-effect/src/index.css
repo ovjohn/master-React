@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.label{
+  
+  background-color:lightblue;
+  border-radius: 5px;
+  padding: 5px;
+  color:chartreuse;
+  margin: 10px;
+}
+
+.label-green{
+  background-color: green;
+  color: white;
+}
