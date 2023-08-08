@@ -3,6 +3,7 @@ import React,  {useEffect, useState} from 'react'
 export const AjaxComponent = () => {
     const [usuarios, setUsuarios] = useState([])
 
+    //Funcion para pasar usuatios estaticos
     const getUsuariosEstaticos = () =>{
         setUsuarios(
             [{
@@ -36,6 +37,7 @@ export const AjaxComponent = () => {
         );
     }
 
+    //Funcion Ajax con metodo fetch y promesas
     const getUsuariosAjaxPromesas = () => {
         fetch("https://reqres.in/api/users?page=1")
             .then(respuesta => respuesta.json())
@@ -50,9 +52,18 @@ export const AjaxComponent = () => {
             )
     }
 
+    //Funcion Ajax con los metodos async y await
+    const getUsuarioAjaxAW = async() => {
+        const peticion = await fetch("https://reqres.in/api/users?page=1");
+        const {data} = await peticion.json();
+        setUsuarios(data);
+        console.log(data);
+    }
+
     useEffect( () => {
         //getUsuariosEstaticos();
-        getUsuariosAjaxPromesas();
+        //getUsuariosAjaxPromesas();
+        getUsuarioAjaxAW();
     }, []);
 
   return (
