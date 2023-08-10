@@ -26,3 +26,13 @@ code {
   color: white;
 }
 
+.usuarios{
+  background-color: rgb(27, 238, 37);
+  width: 50%;
+  margin: 0 auto;
+}
+
+ol{
+  list-style-type: upper-roman;
+  list-style-position: inside;
+}

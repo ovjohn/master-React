@@ -1,7 +1,8 @@
 import React,  {useEffect, useState} from 'react'
 
 export const AjaxComponent = () => {
-    const [usuarios, setUsuarios] = useState([])
+    const [usuarios, setUsuarios] = useState([]);
+    const [cargando, setCargando] = useState(true);
 
     //Funcion para pasar usuatios estaticos
     const getUsuariosEstaticos = () =>{
@@ -53,11 +54,15 @@ export const AjaxComponent = () => {
     }
 
     //Funcion Ajax con los metodos async y await
-    const getUsuarioAjaxAW = async() => {
-        const peticion = await fetch("https://reqres.in/api/users?page=1");
-        const {data} = await peticion.json();
-        setUsuarios(data);
-        console.log(data);
+    const getUsuarioAjaxAW = () => {
+
+        setTimeout( async() =>{            
+            const peticion = await fetch("https://reqres.in/api/users?page=1");
+            const {data} = await peticion.json();
+            setUsuarios(data);
+            //console.log(data);
+            setCargando(false);
+        },2000);        
     }
 
     useEffect( () => {
@@ -66,17 +71,32 @@ export const AjaxComponent = () => {
         getUsuarioAjaxAW();
     }, []);
 
-  return (
-    <div>
-        <h1>Lista de Usuarios con AjaxComponent</h1>
-        <ol className='usuarios'>
-            {usuarios.map( usuario => {
-                console.log(usuario);
-                return <li key={usuario.id}>{usuario.first_name} {usuario.last_name}</li>
-            }
-            )}
-        </ol>
-    </div>
-  )
+    if(cargando){
+        
+        return(
+            <h2>Cargando la informacion¡¡¡¡¡</h2>
+        )
+
+    }else{
+        return (
+            <div>
+                <h1>Lista de Usuarios con AjaxComponent</h1>
+                <ol className='usuarios'>
+                    {usuarios.map( usuario => {
+                        console.log(usuario);
+                        return (<li key={usuario.id}>
+                            <img src={usuario.avatar} width='30'/>
+                            &nbsp;
+                            
+                            {usuario.first_name} {usuario.last_name}</li>)
+                    }
+                    )}
+                </ol>
+            </div>
+          )
+
+    }
+
+  
 }
 
