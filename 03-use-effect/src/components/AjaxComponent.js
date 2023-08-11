@@ -3,6 +3,7 @@ import React,  {useEffect, useState} from 'react'
 export const AjaxComponent = () => {
     const [usuarios, setUsuarios] = useState([]);
     const [cargando, setCargando] = useState(true);
+    const [errores, setErrores] = useState("");
 
     //Funcion para pasar usuatios estaticos
     const getUsuariosEstaticos = () =>{
@@ -55,14 +56,19 @@ export const AjaxComponent = () => {
 
     //Funcion Ajax con los metodos async y await
     const getUsuarioAjaxAW = () => {
+        
+            setTimeout( async() =>{ 
+                try {           
+                    const peticion = await fetch("https://reqres.in/api/users?page=1");
+                    const {data} = await peticion.json();
+                    setUsuarios(data);
+                    setCargando(false);
 
-        setTimeout( async() =>{            
-            const peticion = await fetch("https://reqres.in/api/users?page=1");
-            const {data} = await peticion.json();
-            setUsuarios(data);
-            //console.log(data);
-            setCargando(false);
-        },2000);        
+                } catch(error) {                    
+                    setErrores(error);
+                    console.log("Hola, aqui el error->"+error.message);                       
+                }    
+            },3000);                    
     }
 
     useEffect( () => {
@@ -71,13 +77,17 @@ export const AjaxComponent = () => {
         getUsuarioAjaxAW();
     }, []);
 
-    if(cargando){
-        
+    if(errores !== ""){
+        return(
+            <>
+                <h2>Error: No se consigue la informacion</h2>
+            </>
+        )        
+    }else if(cargando === true){        
         return(
             <h2>Cargando la informacion¡¡¡¡¡</h2>
         )
-
-    }else{
+    }else if(cargando === false && errores === "" ){
         return (
             <div>
                 <h1>Lista de Usuarios con AjaxComponent</h1>
@@ -85,18 +95,14 @@ export const AjaxComponent = () => {
                     {usuarios.map( usuario => {
                         console.log(usuario);
                         return (<li key={usuario.id}>
-                            <img src={usuario.avatar} width='30'/>
-                            &nbsp;
-                            
+                            <img src={usuario.avatar} alt={usuario.first_name} width='30'/>
+                            &nbsp;                            
                             {usuario.first_name} {usuario.last_name}</li>)
                     }
                     )}
                 </ol>
             </div>
           )
-
-    }
-
-  
+    }  
 }
 
