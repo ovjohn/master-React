@@ -38,7 +38,7 @@
 }
 
 .label{
-  
+  display: block;
   background-color:lightblue;
   border-radius: 5px;
   padding: 5px;
@@ -49,6 +49,13 @@
 .label-green{
   background-color: green;
   color: white;
+}
+
+.label-gray{
+  background-color: gray;
+  border: 1px solid #444;
+  color: #444;
+  padding: 10px;
 }
 
 
