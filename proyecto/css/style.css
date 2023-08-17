@@ -1,0 +1,39 @@
+body{
+    background: #d1defa;
+    font-family: sans-serif, Arial, Helvetica;
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+.layaout{
+    width: 100%;
+    height: auto;
+
+    display: grid;
+}
+
+.header{
+    border: 5px solid black;
+    background: lightcoral;
+}
+
+.nav{
+    border: 5px solid blue;
+    background: lightblue;
+}
+
+.content{
+    border: 5px solid gray;
+    background: lightgrey;
+}
+
+.lateral{
+    border: 5px solid green;
+    background: lightcoral;
+}
+
+.footer{
+    border: 5px solid black;
+    background: lightyellow;
+}
