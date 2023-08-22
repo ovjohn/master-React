@@ -6,34 +6,47 @@ body{
     margin: 0px;
 }
 
-.layaout{
+.layout{
     width: 100%;
     height: auto;
 
     display: grid;
+    grid-template-areas: 
+        "header header header header"
+        "nav nav nav nav"
+        "content content content lateral"
+        "footer footer footer footer"    
+    ;
+    grid-auto-rows: 70px 70px auto 70px;
 }
 
 .header{
+    grid-area: header;
     border: 5px solid black;
     background: lightcoral;
 }
 
 .nav{
+    grid-area: nav;
     border: 5px solid blue;
     background: lightblue;
+    list-style-position: inside;
 }
 
 .content{
+    grid-area: content;
     border: 5px solid gray;
     background: lightgrey;
 }
 
 .lateral{
+    grid-area: lateral;
     border: 5px solid green;
     background: lightcoral;
 }
 
 .footer{
+    grid-area: footer;
     border: 5px solid black;
     background: lightyellow;
 }
