@@ -93,8 +93,25 @@ body{
 /*ESTILOS PARA EL CONTENIDO PRINCIPAL*/
 .content{
     grid-area: content;
-    border: 5px solid gray;
-    background: lightgrey;
+    
+    background: #f6f7f9;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.pelis-item{
+    background: white;
+    border-radius: 10px;
+    box-shadow: #ddd;
+    margin: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    padding-top: 60px;
+    padding-bottom: 60px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .lateral{
