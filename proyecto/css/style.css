@@ -106,12 +106,40 @@ body{
     border-radius: 10px;
     box-shadow: #ddd;
     margin: 20px;
-    margin-left: 30px;
-    margin-right: 30px;
+    margin-left: 20px;
+    margin-right: 20px;
     padding-top: 60px;
     padding-bottom: 60px;
     padding-left: 25px;
     padding-right: 25px;
+}
+
+button,
+input[type="submit"],
+input[type="butoon"]{
+    width: 100px;
+    background: linear-gradient(160deg, #03228f 0%, #0b70e1 77%);
+    color: white;
+    border: 0;
+    outline: 0;
+    padding: 15px;
+    border-radius: 3px;
+    margin-top: 15px;
+    text-transform: capitalize;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 600ms;
+}
+
+.pelis-item .edit:hover{
+    background: #e77b00;
+
+}
+
+.pelis-item .delete:hover{
+    background: #9b0202;
+
 }
 
 .lateral{
