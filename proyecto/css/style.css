@@ -102,6 +102,8 @@ body{
 }
 
 .pelis-item{
+    flex-grow: 1;
+
     background: white;
     border-radius: 10px;
     box-shadow: #ddd;
