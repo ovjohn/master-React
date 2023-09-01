@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { GuardarEnStorage } from '../helpers/GuardarenStorage';
 
 export const Crear = () => {
   let title = "Añadir pelicula";
@@ -11,22 +12,28 @@ export const Crear = () => {
   const conseguirDatosFrom = e => {
     e.preventDefault();
 
+    //Conseguir los datos desde el formulario
     let target = e.target;
     let titulo = target.titulo.value;
     let descripcion = target.descripcion.value;
 
-    let pelis ={
+    //Crear Objeto de la Pelicula o guardarla
+    let peli ={
       id: new Date().getTime(),
       titulo,
       descripcion
     }
 
-    setPelisState(pelis);
+    //Guardar een el estado la pelicula
+    setPelisState(peli);
     console.log(pelisState);
+
+    //Guardar en el almacenamiento local
+    GuardarEnStorage("pelis", peli);
+      
   }
 
-
-
+  
 
   return (
     <>
