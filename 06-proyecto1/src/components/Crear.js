@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { GuardarEnStorage } from '../helpers/GuardarenStorage';
 
-export const Crear = () => {
+export const Crear = ({setListadoState}) => {
   let title = "Añadir pelicula";
 
   const [pelisState, setPelisState] = useState({
@@ -27,6 +27,11 @@ export const Crear = () => {
     //Guardar een el estado la pelicula
     setPelisState(peli);
     console.log(pelisState);
+
+    //Actualizar el listado de Peliculas con el setUsestate de la app principal
+    setListadoState(elementos =>{
+      return [...elementos, peli]
+    })
 
     //Guardar en el almacenamiento local
     GuardarEnStorage("pelis", peli);
