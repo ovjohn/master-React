@@ -1,35 +1,36 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const Listado = () => {
+
+  const [listadoState, setListadoState] = useState([]);
+
+  useEffect(() => {
+    console.log("Aqui se esta ejecutado el useEffect exitosamente");
+    conseguirPeliculas();
+  },[]);
+
+  const conseguirPeliculas = () =>{
+    let peliculas = JSON.parse(localStorage.getItem("pelis"));
+    setListadoState(peliculas); 
+  }
+
+
   return (
     <>
-        <article className="pelis-item">
-          <h3 className="title">Desarrollo Web</h3>
-          <p className="description">desarrolloweb.es</p>
-          <button className="edit">Editar</button>
-          <button className="delete">Borrar</button>
-        </article>
-
-        <article className="pelis-item">
-          <h3 className="title">Desarrollo Web</h3>
-          <p className="description">desarrolloweb.es</p>
-          <button className="edit">Editar</button>
-          <button className="delete">Borrar</button>
-        </article>
-
-        <article className="pelis-item">
-          <h3 className="title">Desarrollo Web</h3>
-          <p className="description">desarrolloweb.es</p>
-          <button className="edit">Editar</button>
-          <button className="delete">Borrar</button>
-        </article>
-
-        <article className="pelis-item">
-          <h3 className="title">Desarrollo Web</h3>
-          <p className="description">desarrolloweb.es</p>
-          <button className="edit">Editar</button>
-          <button className="delete">Borrar</button>
-        </article>
+      { listadoState != null ? listadoState.map( pelis => {
+        return(
+          <article key={pelis.id} className="pelis-item">
+            <h3 className="title">{pelis.titulo}</h3>
+            <p className="description">{pelis.descripcion}</p>
+            <button className="edit">Editar</button>
+            <button className="delete">Borrar</button>
+        </article>    
+        )        
+      })
+        : <h2>No existen Peliculas para Mostar</h2>
+    }
+                
+                          
     </>
   )
 }
