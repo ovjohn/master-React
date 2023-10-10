@@ -210,8 +210,10 @@ input[type="butoon"]{
 
   .pelis-item{
       width: 80%;
-  }
+  }  
+}
 
-  
+.no-encontrado{
+  color: #9b0202;
 }
 

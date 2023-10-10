@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 export const Buscador = ({listadoState,setListadoState}) => {
 
   const [busqueda, setBusqueda] = useState('');
+  const [noEncontrado, setNoEncontrado] = useState(false);
 
   const buscarPeli = (e) => {
     //Crear estado y actualizar
@@ -14,7 +15,10 @@ export const Buscador = ({listadoState,setListadoState}) => {
     });
 
     if(busqueda.length <= 1 || peliculas_encontradas <= 0){
-      peliculas_encontradas = JSON.parse(localStorage.getItem("pelis"));      
+      peliculas_encontradas = JSON.parse(localStorage.getItem("pelis"));
+      setNoEncontrado(true);      
+    }else{
+      setNoEncontrado(false);
     }
 
     
@@ -27,6 +31,10 @@ export const Buscador = ({listadoState,setListadoState}) => {
     <>
         <div className="search">
           <h3 className="title">Buscador: {busqueda}</h3>
+          {(noEncontrado === true && busqueda.length > 1) &&(
+            <span className='no-encontrado'>No se ha encrontado coincidencias</span>
+          )}
+          
           <form>
             <input type="text"
                     id="search_field"
