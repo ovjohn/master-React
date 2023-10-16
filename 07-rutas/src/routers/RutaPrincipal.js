@@ -4,6 +4,7 @@ import { Inicio } from '../components/Inicio'
 import { Articulos } from '../components/Ariculos'
 import { Contacto } from '../components/Contacto'
 import { Error } from '../components/Error'
+import { Persona } from '../components/Persona'
 
 
 export const RutaPrincipal = () => {
@@ -39,6 +40,7 @@ export const RutaPrincipal = () => {
                 <Route path='/inicio' element={<Inicio/>}/>
                 <Route path='/articulos' element={<Articulos />}/>
                 <Route path='/contacto' element={<Contacto />}/>
+                <Route path='/persona/:nombre/:apellido' element={<Persona/>}/>
                 <Route path='*' element={<Error />} />
             </Routes>
           </section>
