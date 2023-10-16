@@ -15,9 +15,21 @@ export const RutaPrincipal = () => {
           <hr />
           <nav>
             <ul>
-              <li><NavLink to="/inicio">Inicio</NavLink></li>
-              <li> <NavLink to="/articulos">Articulos</NavLink></li>
-              <li><NavLink to="/contacto">Contacto</NavLink></li>
+              <li><NavLink to="/inicio" 
+                    className={({isActive}) => isActive ? "activado" : ""}>
+                    Inicio
+                  </NavLink>
+              </li>
+              <li><NavLink to="/articulos"
+                    className={({isActive}) => isActive ? "activado" : ""}>
+                  Articulos
+                </NavLink>
+              </li>
+              <li><NavLink to="/contacto"
+                    className={({isActive}) => isActive ? "activado" : ""}>
+                    Contacto
+                  </NavLink>
+              </li>
             </ul>
           </nav>      
           <hr />
