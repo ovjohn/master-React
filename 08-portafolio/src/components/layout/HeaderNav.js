@@ -2,6 +2,9 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 
 export const HeaderNav = () => {
+    
+    const active = ({isActive})=> isActive ? "active" : "";
+
   return (
     <header className='header'>
         <div className='logo'>
@@ -12,19 +15,19 @@ export const HeaderNav = () => {
         <nav>
             <ul>
                 <li>
-                    <NavLink to='/inicio'>Inicio</NavLink>
+                    <NavLink to='/inicio' className={active}>Inicio</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/portafolio'>Portafolio</NavLink>
+                    <NavLink to='/portafolio' className={active}>Portafolio</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/servicios'>Servicios</NavLink>
+                    <NavLink to='/servicios' className={active}>Servicios</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/curriculum'>Curriculum</NavLink>
+                    <NavLink to='/curriculum' className={active}>Curriculum</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/contacto'>Contacto</NavLink>
+                    <NavLink to='/contacto' className={active}>Contacto</NavLink>
                 </li>
             </ul>
         </nav>
