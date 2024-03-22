@@ -1,0 +1,21 @@
+ console.log(formData);
+    if(formData.nombre !== '' && formData.cantidad !== null ){
+      formData.id = Math.random() * 100
+      formData.categoria = e.target.value
+      nuevoInventario(formData)
+      setFormData({
+        id:null, 
+        nombre:'', 
+        categoria:'', 
+        cantidad: null 
+      })
+    }else{
+      alert('Por favor agregar un item')
+    }    
+
+
+++++++++++++++++++++++++++++++++++++++
+setFormData({
+      ...formData,
+      [e.target.name]: e.target.value      
+    })
