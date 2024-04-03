@@ -4,6 +4,7 @@ import { Empleados } from './Empleados'
 export const Gestion = () => {
 
     const [gestor, setGestor] = useState("");
+    const [pagina, setpagina] =useState(1);
     const gestorinput = useRef();
    
     console.log('La vista se ha renderizado');   
@@ -18,8 +19,12 @@ export const Gestion = () => {
         <h2>Listado de Empleados</h2>
         <input type='text' ref={gestorinput} onChange={asignarGestor} placeholder='Introduzca Gestor'/>
         <p>Los empleados son gestionados por - {gestor} -  y vienen de jsonplaceholder...</p>
+        <hr/>
+        
+        <button onClick={() => setpagina(1)}>Pagina-1</button>
+        <button  onClick={() => setpagina(2)}>Pagina-2</button>
 
-        <Empleados />
+        <Empleados page={pagina}/>
     </div>
   )
 }
