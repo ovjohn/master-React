@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react'
 
-export const Empleados = React.memo(({page}) => {
+export const Empleados = React.memo(({page, message}) => {
 
   const [empleados, setEmpleados] = useState([]);
   
   useEffect(()=>{
     conseguirEmpleados(page);
+    message();
    },[page]);
 
   const conseguirEmpleados = async(page) => {
@@ -19,6 +20,8 @@ export const Empleados = React.memo(({page}) => {
   } 
   
   console.log('Se ha renderizado la lista empleados');
+
+  
  
   return (
     <div>

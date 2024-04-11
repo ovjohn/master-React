@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useCallback, useEffect, useRef, useState } from 'react'
 import { Empleados } from './Empleados'
 
 export const Gestion = () => {
@@ -12,6 +12,10 @@ export const Gestion = () => {
     const asignarGestor = e => {
         setGestor(gestorinput.current.value);
     }
+
+    const mensaje = useCallback(() =>{
+      console.log('Hola soy un mensaje desde el componente empleados !!!');
+    },[pagina]);
     
   return (
     <div>
@@ -24,7 +28,10 @@ export const Gestion = () => {
         <button onClick={() => setpagina(1)}>Pagina-1</button>
         <button  onClick={() => setpagina(2)}>Pagina-2</button>
 
-        <Empleados page={pagina}/>
+        <Empleados 
+          page={pagina}
+          message={mensaje}
+        />
     </div>
   )
 }
